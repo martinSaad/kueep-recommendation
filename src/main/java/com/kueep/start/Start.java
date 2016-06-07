@@ -43,8 +43,8 @@ public class Start {
 			SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
 			
 			
-			Date[] arr = {getMeYesterday(), getMeYesterday()};
-			//Date[] arr = {dt.parse("2016-06-03"), dt.parse("2016-06-03")};
+			//Date[] arr = {getMeYesterday(), getMeYesterday()};
+			Date[] arr = {dt.parse("2016-06-01"), dt.parse("2016-06-06")};
 			
 			scheduler.getContext().put("myContextVar", arr);
 			logger.debug("scheduler.start() from logger");
