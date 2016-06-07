@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.log4j.Logger;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
@@ -17,7 +18,11 @@ import com.kueep.recommendation.Recommendation;
 
 public class Start {
 	
+	final static Logger logger = Logger.getLogger(Start.class);
+
 	public static void start() throws SchedulerException, ParseException {
+		logger.debug("starting scheduler... from logger");
+		System.out.println("starting scheduler...");
 		JobDetail job = JobBuilder.newJob().ofType(Recommendation.class)
 				.withIdentity("Recommendation Job", "group1").build();
 
@@ -42,6 +47,8 @@ public class Start {
 			//Date[] arr = {dt.parse("2016-06-03"), dt.parse("2016-06-03")};
 			
 			scheduler.getContext().put("myContextVar", arr);
+			logger.debug("scheduler.start() from logger");
+			System.out.println("scheduler.start()");
 			scheduler.start();
 			scheduler.scheduleJob(job, trigger);
 	}

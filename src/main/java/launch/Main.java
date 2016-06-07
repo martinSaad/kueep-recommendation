@@ -12,12 +12,15 @@ import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.webresources.DirResourceSet;
 import org.apache.catalina.webresources.EmptyResourceSet;
 import org.apache.catalina.webresources.StandardRoot;
+import org.apache.log4j.Logger;
 import org.apache.tomcat.util.scan.Constants;
 import org.apache.tomcat.util.scan.StandardJarScanFilter;
 
 import com.kueep.start.Start;
 
 public class Main {
+	
+	final static Logger logger = Logger.getLogger(Main.class);
 
     private static File getRootFolder() {
         try {
@@ -37,7 +40,8 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-
+    	logger.debug("initialazing tomcat... from logger");
+    	System.out.println("initialazing tomcat...");
         File root = getRootFolder();
         System.setProperty("org.apache.catalina.startup.EXIT_ON_INIT_FAILURE", "true");
         Tomcat tomcat = new Tomcat();
@@ -50,6 +54,8 @@ public class Main {
         if (webPort == null || webPort.isEmpty()) {
             webPort = "8080";
         }
+        logger.debug("select port: " + webPort + "from logger");
+        System.out.println("select port: " + webPort);
 
         tomcat.setPort(Integer.valueOf(webPort));
         File webContentFolder = new File(root.getAbsolutePath(), "src/main/webapp/");
@@ -83,11 +89,14 @@ public class Main {
         }
         resources.addPreResources(resourceSet);
         ctx.setResources(resources);
-
+        
+    	logger.debug("starting tomcat...");
         tomcat.start();
         
+        logger.debug("starting Recommendation Quartz...");
         Start.start();
         
+        logger.debug("===server is up and running");
         tomcat.getServer().await();
     }
 }

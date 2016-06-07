@@ -1,2 +1,9 @@
+com/kueep/httpUtils/HttpUtils.class
+com/kueep/recommendation/Recommendation$rec.class
+com/kueep/recommendation/Recommendation.class
 launch/Main.class
+com/kueep/start/Start.class
+com/kueep/parse/ParseSample.class
 servlet/HelloServlet.class
+com/kueep/analytics/HelloAnalytics.class
+com/kueep/recommendation/Recommendation$recommendationComperator.class

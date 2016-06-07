@@ -228,6 +228,7 @@ public class Recommendation implements Job{
 	@Override
 	public void execute(JobExecutionContext arg0) throws JobExecutionException {
 		try {
+			System.out.println("=====new job===== from syso");
 			logger.info("\n\n=================new job===================\n\n");
 			
 			SchedulerContext schedulerContext = arg0.getScheduler().getContext();
