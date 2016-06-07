@@ -52,5 +52,5 @@
   <classpathentry kind="var" path="M2_REPO/org/mortbay/jetty/jetty/6.1.26/jetty-6.1.26.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/mortbay/jetty/jetty-util/6.1.26/jetty-util-6.1.26.jar"/>
   <classpathentry kind="var" path="M2_REPO/org/mortbay/jetty/servlet-api/2.5-20081211/servlet-api-2.5-20081211.jar"/>
-  <classpathentry kind="var" path="M2_REPO/io/airbrake/airbrake-java/2.2.0/airbrake-java-2.2.0.jar"/>
+  <classpathentry kind="var" path="M2_REPO/io/airbrake/airbrake-java/2.2.8/airbrake-java-2.2.8.jar"/>
 </classpath>
