@@ -17,7 +17,8 @@ import org.quartz.JobExecutionException;
 import org.quartz.SchedulerContext;
 
 import com.google.gson.Gson;
-import com.kueep.analytics.HelloAnalytics;
+//import com.kueep.analytics.HelloAnalytics;
+import com.kueep.analytics.HelloAnalyticsWebService;
 import com.kueep.httpUtils.HttpUtils;
 import com.kueep.parse.ParseSample;
 
@@ -26,7 +27,8 @@ public class Recommendation implements Job{
 	final static Logger logger = Logger.getLogger(Recommendation.class);
 
 	private ParseSample parse = new ParseSample();
-	private HelloAnalytics analytics = new HelloAnalytics();
+	//private HelloAnalytics analytics = new HelloAnalytics();
+	private HelloAnalyticsWebService analytics = new HelloAnalyticsWebService();
 	
 	private static final String USER_ID = "userId";
 	private static final String GROUP_ID = "groupId";

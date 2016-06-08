@@ -1,8 +1,8 @@
 com/kueep/httpUtils/HttpUtils.class
-com/kueep/recommendation/Recommendation$rec.class
 com/kueep/recommendation/Recommendation.class
-launch/Main.class
 com/kueep/parse/ParseSample.class
+com/kueep/recommendation/Recommendation$rec.class
+launch/Main.class
 servlet/HelloServlet.class
-com/kueep/analytics/HelloAnalytics.class
+com/kueep/analytics/HelloAnalyticsWebService.class
 com/kueep/recommendation/Recommendation$recommendationComperator.class
