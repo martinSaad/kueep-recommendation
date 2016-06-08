@@ -68,20 +68,20 @@ public class HelloAnalyticsWebService {
     // and p12 file downloaded from the developer console.
     HttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
     
-	   InputStreamReader s = new InputStreamReader(HelloAnalyticsWebService.class.getClassLoader()
-	            .getResourceAsStream(KEY_FILE_LOCATION));
 	   
-	   ClassLoader classLoader = HelloAnalyticsWebService.class.getClassLoader();
-		File file = new File(classLoader.getResource("credentials.p12").getFile());
+
     
+	logger.debug("------creating google credentials--------");
     GoogleCredential credential = new GoogleCredential.Builder()
         .setTransport(httpTransport)
         .setJsonFactory(JSON_FACTORY)
         .setServiceAccountId(SERVICE_ACCOUNT_EMAIL)
-        .setServiceAccountPrivateKeyFromP12File(file)
+        .setServiceAccountPrivateKeyFromP12File(new File("src/main/java/com/kueep/analytics/credentials.p12"))
         .setServiceAccountScopes(AnalyticsScopes.all())
         .build();
 
+    
+    logger.debug("------credentials created--------");
     // Construct the Analytics service object.
     return new Analytics.Builder(httpTransport, JSON_FACTORY, credential)
         .setApplicationName(APPLICATION_NAME).build();
