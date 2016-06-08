@@ -15,6 +15,7 @@ import com.google.api.services.analytics.model.Webproperties;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -66,11 +67,18 @@ public class HelloAnalyticsWebService {
     // Construct a GoogleCredential object with the service account email
     // and p12 file downloaded from the developer console.
     HttpTransport httpTransport = GoogleNetHttpTransport.newTrustedTransport();
+    
+	   InputStreamReader s = new InputStreamReader(HelloAnalyticsWebService.class.getClassLoader()
+	            .getResourceAsStream(KEY_FILE_LOCATION));
+	   
+	   ClassLoader classLoader = HelloAnalyticsWebService.class.getClassLoader();
+		File file = new File(classLoader.getResource("credentials.p12").getFile());
+    
     GoogleCredential credential = new GoogleCredential.Builder()
         .setTransport(httpTransport)
         .setJsonFactory(JSON_FACTORY)
         .setServiceAccountId(SERVICE_ACCOUNT_EMAIL)
-        .setServiceAccountPrivateKeyFromP12File(new File(KEY_FILE_LOCATION))
+        .setServiceAccountPrivateKeyFromP12File(file)
         .setServiceAccountScopes(AnalyticsScopes.all())
         .build();
 
