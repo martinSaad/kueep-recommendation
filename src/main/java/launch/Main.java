@@ -47,7 +47,7 @@ public class Main {
         tomcat.start();
         
 		SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
-		Date[] dates = {dt.parse("2016-06-03"), dt.parse("2016-06-03")};
+		Date[] dates = {dt.parse("2016-06-01"), dt.parse("2016-06-12")};
 		Recommendation r = new Recommendation();
 		Map<String, String> preferences = r.setNewPreferences(dates[0], dates[1]);
 		if (preferences!=null)
