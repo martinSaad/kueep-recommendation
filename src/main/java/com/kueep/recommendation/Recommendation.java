@@ -105,6 +105,7 @@ public class Recommendation implements Job{
 	 * it it's an existing user - update their preferences.
 	 */
 	public Map<String, String> setNewPreferences(Date startDate, Date endDate){
+		logger.info("\n\n====starting ML=====\n\n");
 		JSONArray analyticsResults = new JSONArray();
 		Map<String,String> preferences = null;
 		try {

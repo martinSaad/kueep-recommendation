@@ -43,10 +43,11 @@ public class Main {
                 additionWebInfClasses.getAbsolutePath(), "/"));
         ctx.setResources(resources);
 
-        logger.debug("starting apache tomcat.......");
+        logger.info("\n\n=========starting apache tomcat=========\n\n");
         tomcat.start();
         
 		SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
+		//Date[] dates = {getMeYesterday(), getMeYesterday()};
 		Date[] dates = {dt.parse("2016-06-01"), dt.parse("2016-06-12")};
 		Recommendation r = new Recommendation();
 		Map<String, String> preferences = r.setNewPreferences(dates[0], dates[1]);
@@ -56,4 +57,8 @@ public class Main {
         
         tomcat.getServer().await();
     }
+    
+	private static Date getMeYesterday(){
+	     return new Date(System.currentTimeMillis()-24*60*60*1000);
+	}
 }
