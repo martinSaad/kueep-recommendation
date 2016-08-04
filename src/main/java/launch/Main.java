@@ -48,7 +48,7 @@ public class Main {
         
 		SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
 		//Date[] dates = {getMeYesterday(), getMeYesterday()};
-		Date[] dates = {dt.parse("2016-06-01"), dt.parse("2016-07-09")};
+		Date[] dates = {dt.parse("2016-06-13"), dt.parse("2016-06-13")};
 		
 		Recommendation r = new Recommendation();
 		Map<String, String> preferences = r.setNewPreferences(dates[0], dates[1]);
