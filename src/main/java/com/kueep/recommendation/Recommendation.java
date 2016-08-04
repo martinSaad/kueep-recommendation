@@ -82,7 +82,9 @@ public class Recommendation implements Job{
 			try {
 				obj = analytics.getJSONObject(i);
 				String groupId = obj.getString(GROUP_ID);
-				
+				if (groupId.equals("Eaqow4gNMn") || groupId.equals("wElIuM8lwy")){
+					continue;
+				}
 				//call parse and pull the productId
 				String productId = parse.getProductId(groupId);
 				
